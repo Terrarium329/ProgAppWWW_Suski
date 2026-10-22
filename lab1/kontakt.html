@@ -29,16 +29,16 @@
 zostanie zapisane ani wysłane e-mailem</p>
 
 	<form>
-	<label>e-mail: <input type="email" name="email" required></label>
-	<label>produkt: <select name="produkt" required>
+	<label for="1">e-mail: <input type="email" name="email" required id="1"></label>
+	<label for="2">produkt: <select name="produkt" required id="2">
 		<option value="">Wybierz produkt</option>
 		<option value="1">Auto 1</option>
 		<option value="1">Auto 2</option>
 		<option value="1">Auto 3</option>
 		</select>
 	</label>
-	<label>liczba sztuk: <input type="number" name="ilosc" min="1" max="5" step="1" required></label>
-	<label>wiadomość: <textarea name="wiadomosc" required minlength="10" maxlength="500"></textarea></label>
+	<label for="3">liczba sztuk: <input type="number" name="ilosc" min="1" max="5" step="1" required id="3"></label>
+	<label for="4">wiadomość: <textarea name="wiadomosc" required minlength="10" maxlength="500" id="4"></textarea></label>
 	<button type="submit">Sprawdź zapytanie</button>
 	</form>
 

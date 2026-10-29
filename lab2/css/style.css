@@ -15,6 +15,24 @@
 	--kolor-focus: LawnGreen;
 }
 
+.wyszukiwanie {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	align-items: center;
+	max-width: 1100px;
+	padding: 5px;
+}
+
+.uwaga-bledu {
+	color: var(--kolor-focus);
+	margin: 0;
+}
+
+[hidden] {
+	display: none !important;
+}
+
 body {
 	background-color: var(--kolor-tla);
 	color: var(--kolor-tekstu);

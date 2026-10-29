@@ -1,4 +1,4 @@
-const samochody = {
+const samochody = [
     {
         id: "1",
         nazwa: "Mercedes",
@@ -14,9 +14,13 @@ const samochody = {
         nazwa: "Ford",
         cena: 4000
     }
-};
+];
 
 
 function zamówienie(cena, liczba) {
     return cena * liczba;
 }
+
+const poleSamochód = document.querySelector("#produkt");
+const poleSztuki = document.querySelector("#ilosc");
+

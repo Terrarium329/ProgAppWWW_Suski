@@ -1,4 +1,4 @@
-\# Testy
+# Testy
 
 
 
@@ -8,7 +8,7 @@ Wersja 156.0.4314.42 (Oficjalna kompilacja) (wersja 64-bitowa)
 
 
 
-\## Struktura
+## Struktura
 
 
 
@@ -28,7 +28,7 @@ Po wyłączeniu stylów we wszystkich 3 plikach zniknęły marginesy dzielące e
 
 
 
-\## Widoki
+## Widoki
 
 
 
@@ -46,7 +46,7 @@ W przypadku szerokości 1280px 3 kolumny produktów bez przycięcia
 
 
 
-\## Klawiatura
+## Klawiatura
 
 
 
@@ -58,7 +58,7 @@ Próba zakończona pomyślnie. Fokus jest widoczny. Kliknięcie etykiety aktywuj
 
 
 
-\## Walidacja
+## Walidacja
 
 
 
@@ -90,7 +90,7 @@ Pomyślna próba wysłania zapytania w przypadku poprawnych danych. Wartości za
 
 
 
-\## Eksperyment
+## Eksperyment
 
 
 

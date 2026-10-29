@@ -1,6 +1,23 @@
 :root {
+	--kolor-tla: white;
+	--kolor-tekstu: black;
+	--kolor-ramki: black;
+	--kolor-pola: white;
 	--kolor-hover: LawnGreen;
 	--kolor-focus: red;
+}
+
+[data-theme="dark"] {
+	--kolor-tla: black;
+	--kolor-tekstu: white;
+	--kolor-ramki: grey;
+	--kolor-pola: #2a2a2a;
+	--kolor-focus: LawnGreen;
+}
+
+body {
+	background-color: var(--kolor-tla);
+	color: var(--kolor-tekstu);
 }
 
 header, main, footer {
@@ -15,8 +32,13 @@ img {
 
 
 .karta {
-	border: 10px solid black;
+	border: 10px solid var(--kolor-ramki);
 	padding: 5px;
+}
+
+input, select, textarea, button {
+	background-color: var(--kolor-pola);
+	color: var(--kolor-tekstu);
 }
 
 .katalog {

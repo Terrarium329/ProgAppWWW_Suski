@@ -1,8 +1,8 @@
-\# Radme
+# Radme
 
 
 
-\## Instrukcja uruchomienia
+## Instrukcja uruchomienia
 
 
 
@@ -10,7 +10,7 @@ Katalog z plikami należy umieścić na swoim dysku, a następnie otworzyć plik
 
 
 
-\## Źródła grafik
+## Źródła grafik
 
 
 

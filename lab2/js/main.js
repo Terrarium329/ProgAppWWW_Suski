@@ -70,7 +70,7 @@ function Zegar() {
         hour12: false
     });
 
-    let idOkresCzasu = null;
+    let interwal = null;
 
     function wypis() {
         const chwila = new Date();
@@ -78,19 +78,19 @@ function Zegar() {
     }
 
     function startZegar() {
-        if (idOkresCzasu !== null) {
+        if (interwal !== null) {
             return;
         }
         wypis();
-        idOkresCzasu = setInterval(wypis, 1000);
+        interwal = setInterval(wypis, 1000);
     }
 
     function przerwijTykanie() {
-        if (idOkresCzasu === null) {
+        if (interwal === null) {
             return;
         }
-        clearInterval(idOkresCzasu);
-        idOkresCzasu = null;
+        clearInterval(interwal);
+        interwal = null;
     }
 
     wypis();

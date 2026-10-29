@@ -29,20 +29,19 @@
 
 
 	<h2>Formularz</h2>
-	<p>Formularz demonstracyjny. Dane pojawią się w adresie strony; zapytanie nie 
-zostanie zapisane ani wysłane e-mailem</p>
+	<p>Podgląd lokalny. Formularz nie wysyła wiadomości</p>
 
-	<form>
+	<form id="ankieta-zapytania">
 	<label for="email">e-mail: <input type="email" name="email" required id="email"></label>
 	<label for="produkt">produkt: <select name="produkt" required id="produkt">
 		<option value="">Wybierz produkt</option>
-		<option value="1">Mercedes</option>
-		<option value="2">Chrysler</option>
-		<option value="3">Ford</option>
+		<option value="1">Mercedes A 150</option>
+		<option value="2">Chrysler Pt Cruiser Kabriolet</option>
+		<option value="3">Ford Interceptor</option>
 		</select>
 	</label>
 	<label for="ilosc">liczba sztuk: <input type="number" name="ilosc" min="1" max="5" step="1" required id="ilosc"></label>
-	<p id="uwaga-tresci" aria-live="polite"></p>
+	<p id="tablica-wyceny" aria-live="polite"></p>
 	<label for="wiadomosc">wiadomość: <textarea name="wiadomosc" required minlength="10" maxlength="500" id="wiadomosc"></textarea></label>
 	<p id="uwaga-tresci" class="uwaga-bledu" aria-live="polite"></p>
 	<button type="submit">Sprawdź zapytanie</button>

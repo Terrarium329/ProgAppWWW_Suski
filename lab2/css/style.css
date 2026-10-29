@@ -29,6 +29,10 @@
 	margin: 0;
 }
 
+.panel-czasu {
+	color: red;
+}
+
 [hidden] {
 	display: none !important;
 }

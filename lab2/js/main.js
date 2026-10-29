@@ -107,7 +107,7 @@ function Wyszukiwanie() {
         return;
     }
 
-    function oferty() {
+    function filtruj() {
         const szukanefraza = poleFrazy.value.trim().toLowerCase();
         let liczbaaut = 0;
 
@@ -128,8 +128,8 @@ function Wyszukiwanie() {
         }
     }
 
-    poleFrazy.addEventListener("input", oferty);
-    oferty();
+    poleFrazy.addEventListener("input", filtruj);
+    filtruj();
 }
 
 function Formularz() {
@@ -244,7 +244,7 @@ function Formularz() {
     poleIlosci.addEventListener("input", odswiez);
     poleIlosci.addEventListener("input", wyczysc);
     poleTresci.addEventListener("input", wyczysc);
-    poleTresci.addEventListener("input", funct() {
+    poleTresci.addEventListener("input", function() {
         if (poleTresci.hasAttribute("aria-invalid")) {
             sprawdzTresc();
         }

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./css/style.css" rel="stylesheet">
+	<title>Strona sklepu</title>
+	</head>
+
+	<body>
+
+	<header>
+
+	<h1>Strona kontaktu z klientem!</h1>
+	
+	<nav class="menu">
+	
+	<a href="./index.html">Index</a>
+	<a href="./produkt.html">Produkt</a>
+	<a href="./kontakt.html" aria-current="page">Kontakt</a>
+	</nav>
+
+	</header>	
+	
+	<main>
+
+
+	<h2>Formularz</h2>
+	<p>Formularz demonstracyjny. Dane pojawią się w adresie strony; zapytanie nie 
+zostanie zapisane ani wysłane e-mailem</p>
+
+	<form>
+	<label for="1">e-mail: <input type="email" name="email" required id="1"></label>
+	<label for="2">produkt: <select name="produkt" required id="2">
+		<option value="">Wybierz produkt</option>
+		<option value="1">Auto 1</option>
+		<option value="1">Auto 2</option>
+		<option value="1">Auto 3</option>
+		</select>
+	</label>
+	<label for="3">liczba sztuk: <input type="number" name="ilosc" min="1" max="5" step="1" required id="3"></label>
+	<label for="4">wiadomość: <textarea name="wiadomosc" required minlength="10" maxlength="500" id="4"></textarea></label>
+	<button type="submit">Sprawdź zapytanie</button>
+	</form>
+
+
+	</main>	
+
+	<footer>Testowy footer</footer>
+
+	</body>
+</html>

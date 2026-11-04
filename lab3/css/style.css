@@ -1,0 +1,105 @@
+:root {
+	--kolor-tla: white;
+	--kolor-tekstu: black;
+	--kolor-ramki: black;
+	--kolor-pola: white;
+	--kolor-hover: LawnGreen;
+	--kolor-focus: red;
+}
+
+[data-theme="dark"] {
+	--kolor-tla: black;
+	--kolor-tekstu: white;
+	--kolor-ramki: grey;
+	--kolor-pola: #2a2a2a;
+	--kolor-focus: LawnGreen;
+}
+
+
+#demonstracja {
+	.guzik {
+		box-sizing: border-box;
+		width: 160px;
+		height: 90px;
+	}
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.wyszukiwanie {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	align-items: center;
+	max-width: 1100px;
+	padding: 5px;
+}
+
+.uwaga-bledu {
+	color: var(--kolor-focus);
+	margin: 0;
+}
+
+.panel-czasu {
+	color: red;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+body {
+	background-color: var(--kolor-tla);
+	color: var(--kolor-tekstu);
+}
+
+header, main, footer {
+	max-width: 1100px;
+	padding: 5px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+.karta {
+	border: 10px solid var(--kolor-ramki);
+	padding: 5px;
+}
+
+input, select, textarea, button {
+	background-color: var(--kolor-pola);
+	color: var(--kolor-tekstu);
+}
+
+.katalog {
+	display: grid;
+	gap: 5px;
+	grid-template-columns: repeat(1, 1fr);
+}
+
+.menu {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+a:hover, button:hover {
+	background-color: DarkRed;
+	outline-offset: 5px;
+	color: var(--kolor-hover);
+}
+
+a:focus-visible, button:focus-visible {
+	color: var(--kolor-focus);
+}
+
+@media (min-width: 768px) {
+    .katalog {
+	display: grid;
+	gap: 5px;
+	grid-template-columns: repeat(3, 1fr);
+    }
+}

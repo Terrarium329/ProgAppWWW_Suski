@@ -1,5 +1,3 @@
-let togglepierwszy = false;
-
 // PSEUDOKOD ANIMACJI:
 
 // toggle = false
@@ -19,7 +17,7 @@ let togglepierwszy = false;
 //     animacja()
 // }
 
-
+let togglepierwszy = false;
 
 function animacjaPierwszego() {
     $("#pierwszy").stop(true, false);
@@ -117,3 +115,44 @@ $("#drugi").on("blur",function(){
     animacjaDrugiego();
 });
 
+
+// PSEUDOKOD ANIMACJI:
+
+// etap = 0
+// animacja(){
+//     if (przycisk jest animowany){
+//         return
+//     }
+//     if (etap >= 5){
+//         return
+//     }
+//     etap++
+//     szerokosc = 160 + (etap * 20)
+//     wysokosc = 90 + (etap * 10)
+//     animuj(przycisk, powieksz do szerokosci i wysokosci, 300 ms)
+//     aktualizuj_licznik()
+// }
+// gdy(kliknięto przycisk){
+//     animacja()
+// }
+
+let etap = 0;
+
+function animacjaTrzeciego(){
+    if ($("#trzeci").is(":animated")) {
+        return;
+    }
+    if (etap >= 5) {
+        return;
+    }
+    etap++;
+    let szerokosc = 160 + (etap * 20);
+    let wysokosc = 90 + (etap * 10);
+    $("#trzeci").animate({
+        width: szerokosc + "px",
+        height: wysokosc + "px"
+    }, 300);
+    $("#licznik").text("Etap: " + etap);
+}
+
+$("#trzeci").on("click",animacjaTrzeciego);

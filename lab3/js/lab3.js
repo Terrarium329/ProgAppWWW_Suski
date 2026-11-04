@@ -1,6 +1,4 @@
 let togglepierwszy = false;
-let toggledrugi = false;
-let toggletrzeci = false;
 
 // PSEUDOKOD ANIMACJI:
 
@@ -42,44 +40,80 @@ function animacjaPierwszego() {
     }
 }
 
-function animacjaDrugiego() {
-    $("#drugi").stop(true, false);
-    if (!toggledrugi){
-        toggledrugi = true;
-        $("#drugi").attr("aria-pressed", true);
-        $("#drugi").animate({
-            width: "240px",
-            height: "130px"
-        },300);
-    }else{
-        toggledrugi = false;
-        $("#drugi").attr("aria-pressed", false);
-        $("#drugi").animate({
-            width: "160px",
-            height: "90px"
-        },300);
-    }
-}
 
-function animacjaTrzeciego() {
-    $("#trzeci").stop(true, false);
-    if (!toggletrzeci){
-        toggletrzeci = true;
-        $("#trzeci").attr("aria-pressed", true);
-        $("#trzeci").animate({
-            width: "240px",
-            height: "130px"
-        },300);
-    }else{
-        toggletrzeci = false;
-        $("#trzeci").attr("aria-pressed", false);
-        $("#trzeci").animate({
-            width: "160px",
-            height: "90px"
-        },300);
-    }
-}
 
 $("#pierwszy").on("click", animacjaPierwszego);
-$("#drugi").on("click", animacjaDrugiego);
-$("#trzeci").on("click", animacjaTrzeciego);
+
+
+// PSEUDOKOD ANIMACJI:
+
+// fokus = false
+// kursor = false
+// animacja(){
+//     stop_aktualne_animacje(przycisk)
+//     if (fokus OR kursor){
+//         animuj(przycisk, powiększ, 300 ms)
+//     }else{
+//         animuj(przycisk, zmniejsz, 300 ms)
+//     }
+// }
+
+// gdy(najechano kursorem na przycisk){
+//     kursor = true
+//     animacja()
+// }
+// gdy(zabrano kursor z przycisku){
+//     kursor = false
+//     animacja()
+// }
+// gdy(fokus na przycisku){
+//     fokus = true
+//     animacja()
+// }
+// gdy(fokus z przycisku){
+//     fokus = false
+//     animacja()
+// }
+
+
+let fokusdrugi = false;
+let kursordrugi = false;
+
+function animacjaDrugiego() {
+    $("#drugi").stop(true, false);
+    if (kursordrugi || fokusdrugi){
+        $("#drugi").animate({
+            width: "220px",
+            height: "120px"
+        },300);
+    }else{
+        $("#drugi").animate({
+            width: "160px",
+            height: "90px"
+        },300);
+    }
+}
+
+
+
+
+$("#drugi").on("mouseenter",function(){
+    kursordrugi = true;
+    animacjaDrugiego();
+});
+
+$("#drugi").on("mouseleave",function(){
+    kursordrugi = false;
+    animacjaDrugiego();
+});
+
+$("#drugi").on("focus",function(){
+    fokusdrugi = true;
+    animacjaDrugiego();
+});
+
+$("#drugi").on("blur",function(){
+    fokusdrugi = false;
+    animacjaDrugiego();
+});
+

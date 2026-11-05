@@ -156,3 +156,33 @@ function animacjaTrzeciego(){
 }
 
 $("#trzeci").on("click",animacjaTrzeciego);
+
+
+// -------------------------------------------
+
+
+function wyzerowanie(){
+    $("#pierwszy").stop(true, false);
+    $("#trzeci").stop(true, false);
+    togglepierwszy = false;
+    $("#pierwszy").css({
+            width: "160px",
+            height: "90px"
+        });
+    $("#trzeci").css({
+            width: "160px",
+            height: "90px"
+        });
+    $("#pierwszy").attr("aria-pressed", true);
+    etap = 0;
+    $("#licznik").text("Etap: " + etap);
+}
+
+$("#czwarty").on("click",wyzerowanie);
+
+
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    $.fx.off = true;
+}else{
+    $.fx.off = false;
+}

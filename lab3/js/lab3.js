@@ -186,3 +186,29 @@ if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
 }else{
     $.fx.off = false;
 }
+
+
+
+function sprawdzenieSerwera(){
+    $("#wynikserwera").text("Wynik serwera: ładowanie");
+    $("#piąty").prop("disabled", true);
+    $.ajax({
+        url: "status.php",
+        method: "GET",
+        dataType: "text",
+        timeout: 5000
+    })
+    .done(function(echoPhp){
+        $("#wynikserwera").text("Wynik serwera: " + echoPhp);
+    })
+    .fail(function(){
+        $("#wynikserwera").text("Wynik serwera: błąd połączenia");
+    })
+    .always(function(){
+        $("#piąty").prop("disabled", false);
+    });
+}
+
+
+
+$("#piąty").on("click",sprawdzenieSerwera);

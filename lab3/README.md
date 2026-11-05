@@ -39,4 +39,36 @@ Ford Interceptor - https://bellesmachines.com/ford-falcon-mad-max/
 
 
 
+## Sprawdzenie animacji
 
+### Szybkie kliknięcia A
+
+Oczekiwany wynik: po resecie i 10 kliknięciach stan bazowy; po zakończeniu klikania animacje nie odtwarzają zaległej kolejki.
+
+Próba zakończona pomyślnie: po zakończeniu klikania stan bazowy i brak kolejki kolejnych animacji.
+
+### Kursor i fokus B
+
+Oczekiwany wynik: wyjście kursora przy zachowanym fokusie nie zmniejsza obiektu. Utrata obu stanów przywraca rozmiar bazowy.
+
+Próba zakończona pomyślnie: fokus po wyjściu kursora sprawia, że animacja na przycisku B nadal działa. Rozmiar bazowy powraca dopiero po zmianie obu stanów na false.
+
+### Limit i reset C
+
+Oczekiwany wynik: pięć kroków daje 260 × 140 px. Dalsze kliknięcia nie powiększają obiektu; reset podczas animacji zeruje stan.
+
+Próba zakończona pomyślnie: po osiągnięciu maksymalnych rozmiarów po 5 krokach nie jest możliwe dalsze powiększenie. Reset działa prawidłowo.
+
+### Klawiatura i ruch
+
+Oczekiwany wynik: Tab dociera do przycisków; Enter i Spacja obsługują A, C i reset. Ograniczenie ruchu wyłącza przejścia, zachowując funkcje.
+
+Próba zakończona pomyślnie: Ruch za pomocą Tabu oraz enter i spacja działaja poprawnie. Ograniczenie ruchu nie wyłączyło funkcji, tylko przejścia.
+
+Motyw, zegar i formularz działają poprawnie.
+
+## Testy w Network
+
+Żądanie prawidłowo posiada metodę GET oraz kod 200 i odpowiedź 'PHP działa'. Zmiana nazwy status.php na astatus.php sprawiła, że żadanie miało kod błędu 404. Po przywróceniu starej nazwy żądanie działa prawidłowo. 
+
+Po zmianie prędkości sieci na Slow 4G przycisk sprawdź serwer jest po wciśnięciu widocznie wyłączony, a wynik serwera pokazuje informację o ładowaniu.

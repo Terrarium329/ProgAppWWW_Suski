@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./css/style.css" rel="stylesheet">
+	<script src="./js/main.js" defer></script>
+	<script src="./vendor/jquery-4.0.0.min.js" defer></script>
+	<script src="./js/lab3.js defer"></script>
+	<title>Strona sklepu</title>
+	</head>
+
+	<body>
+
+	<header>
+
+	<h1>Produkt</h1>
+	
+	<nav class="menu">
+	
+	<a href="./index.html">Index</a>
+	<a href="./produkt.html" aria-current="page">Produkt</a>
+	<a href="./kontakt.html">Kontakt</a>
+	</nav>
+
+	<button type="button" id="motyw" aria-pressed="false">Tryb ciemny</button>
+
+	</header>	
+	
+	<main>
+
+	<h1>Mercedes A 150</h1>
+	<img src="./img/a150.png" alt="Brak zdjęcia" width="350" height="196">
+	<h3>1000 zł</h3>
+	<p>Pożądny samochód, użytkowany wiele lat</p>
+	<ul>
+		<li>Auto jest po dwóch wypadkach
+		<li>Starte kostki hamulcowe
+		<li>Bez pasów z tyłu
+	</ul>
+
+	<table>
+	<caption>Charakterystyka</caption>
+	
+		<thead>
+		<tr>
+		<th scope="col">Cecha</th>
+		<th scope="col">Wartość</th>
+
+		<tbody>
+		<tr>
+		<td><strong>Koła</strong></td>
+		<td>4 koła</td>
+
+		<tr>
+		<td><strong>Paliwo</strong></td>
+		<td>Benzyna</td>
+
+		<tr>
+		<td><strong>Przebieg</strong></td>
+		<td>160 <em>km</em></td>
+
+	</table>
+
+	<a href="./kontakt.html">Zapytaj o produkt</a>
+
+	</main>	
+
+	<footer>Testowy footer
+
+	<section class="panel-czasu" aria-label="Data i czas">
+	<p id="wskazanie-czasu" aria-live="off">Ładowanie zegara…</p>
+	<button type="button" id="uruchom-tykanie">Start zegara</button>
+	<button type="button" id="wstrzymaj-tykanie">Stop zegara</button>
+	</section>
+
+	</footer>
+
+	</body>
+</html>

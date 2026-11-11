@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./css/style.css" rel="stylesheet">
+	<script src="./js/main.js" defer></script>
+	<script src="./vendor/jquery-4.0.0.min.js" defer></script>
+	<script src="./js/lab3.js defer"></script>
+	<title>Strona sklepu</title>
+	</head>
+
+	<body>
+
+	<header>
+
+	<h1>Strona kontaktu z klientem!</h1>
+	
+	<nav class="menu">
+	
+	<a href="./index.html">Index</a>
+	<a href="./produkt.html">Produkt</a>
+	<a href="./kontakt.html" aria-current="page">Kontakt</a>
+	</nav>
+
+	<button type="button" id="motyw" aria-pressed="false">Tryb ciemny</button>
+
+	</header>	
+	
+	<main>
+
+
+	<h2>Formularz</h2>
+	<p>Podgląd lokalny. Formularz nie wysyła wiadomości</p>
+
+	<form id="ankieta-zapytania">
+	<label for="email">e-mail: <input type="email" name="email" required id="email"></label>
+	<label for="produkt">produkt: <select name="produkt" required id="produkt">
+		<option value="">Wybierz produkt</option>
+		<option value="1">Mercedes A 150</option>
+		<option value="2">Chrysler Pt Cruiser Kabriolet</option>
+		<option value="3">Ford Interceptor</option>
+		</select>
+	</label>
+	<label for="ilosc">liczba sztuk: <input type="number" name="ilosc" min="1" max="5" step="1" required id="ilosc"></label>
+	<p id="tablica-wyceny" aria-live="polite"></p>
+	<label for="wiadomosc">wiadomość: <textarea name="wiadomosc" required minlength="10" maxlength="500" id="wiadomosc"></textarea></label>
+	<p id="uwaga-tresci" class="uwaga-bledu" aria-live="polite"></p>
+	<button type="submit">Sprawdź zapytanie</button>
+	</form>
+
+	<section id="wynik" aria-live="polite"></section>
+	</main>	
+
+	<footer>Testowy footer
+
+	<section class="panel-czasu" aria-label="Data i czas">
+	<p id="wskazanie-czasu" aria-live="off">Ładowanie zegara…</p>
+	<button type="button" id="uruchom-tykanie">Start zegara</button>
+	<button type="button" id="wstrzymaj-tykanie">Stop zegara</button>
+	</section>
+
+	</footer>
+
+	</body>
+</html>

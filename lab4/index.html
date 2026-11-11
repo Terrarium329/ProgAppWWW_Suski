@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./css/style.css" rel="stylesheet">
+	<script src="./js/main.js" defer></script>
+	<script src="./vendor/jquery-4.0.0.min.js" defer></script>
+	<script src="./js/lab3.js" defer></script>
+	<title>Strona sklepu</title>
+	</head>
+
+	<body>
+
+	<header>
+
+	<h1>Samochody na Sprzedaż</h1>
+	
+	<nav class="menu">
+	
+	<a href="./index.html" aria-current="page">Index</a>
+	<a href="./produkt.html">Produkt</a>
+	<a href="./kontakt.html">Kontakt</a>
+	<a href="./lab4.php">Katalog PHP</a>
+	</nav>
+
+	<h2>Sekcja Demonstracyjna</h2>
+	<section id="demonstracja">
+		<button class="guzik" type="button" id="pierwszy" aria-pressed="false">Przycisk A</button>
+		<button class="guzik" type="button" id="drugi">Przycisk B</button>
+		<button class="guzik" type="button" id="trzeci">Przycisk C</button>
+		<button class="guzik" type="button" id="czwarty">Resetuj A i C</button>
+		<button class="guzik" type="button" id="piąty">Sprawdź serwer</button>
+	</section>
+
+	<p id="licznik" role="status">Etap: 0</p>
+	<p id="wynikserwera" role="status">Wynik serwera: nieznany</p>
+
+	<button type="button" id="motyw" aria-pressed="false">Tryb ciemny</button>
+
+	</header>
+
+	<section class="wyszukiwanie" aria-label="Wyszukiwanie w katalogu">
+	<label for="fraza-katalogu">Szukaj produktu:</label>
+	<input type="search" id="fraza-katalogu" autocomplete="off">
+	<p id="raport-filtru" aria-live="polite"></p>
+	</section>
+
+	<main class="katalog">
+
+	<article class="karta"><a href="./produkt.html">
+
+	<h1 class="nazwa-oferty">Mercedes A 150</h1>
+	<img src="./img/a150.png" alt="Brak zdjęcia" width="350" height="196">
+	<h3>1000 zł</h3>
+	<p>Pożądny samochód, użytkowany wiele lat</p>
+
+	</a>
+	</article>
+
+	<article class="karta">
+
+	<h1 class="nazwa-oferty">Chrysler Pt Cruiser Kabriolet</h1>
+	<img src="./img/cruiser.png" alt="Brak zdjęcia" width="350" height="233">
+	<h3>2000 zł</h3>
+	<p>Posiada automatyczną skrzynię biegów</p>
+
+	</article>
+
+	<article class="karta">
+
+	<h1 class="nazwa-oferty">Ford Interceptor</h1>
+	<img src="./img/ford.png" alt="Brak zdjęcia" width="350" height="196">
+	<h3>4000 zł</h3>
+	<p>Używany podczas produkcji filmów w Australii</p>
+
+	</article>
+
+	</main>	
+
+	<footer>Testowy footer
+
+	<section aria-label="Data i czas">
+	<p id="wskazanie-czasu" aria-live="off">Ładowanie zegara…</p>
+	<button type="button" id="uruchom-tykanie">Start zegara</button>
+	<button type="button" id="wstrzymaj-tykanie">Stop zegara</button>
+	</section>
+
+	</footer>
+
+	</body>
+</html>

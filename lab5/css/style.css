@@ -16,6 +16,16 @@
 }
 
 
+
+iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 200px;
+}
+
+
+
 #demonstracja {
 	.guzik {
 		box-sizing: border-box;

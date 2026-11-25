@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/cfg.php';
+
 $mapa = [
 	"glowna" => ["tytul" => "Strona główna","sciezka" => "./html/glowna.html"],
 	"produkt" => ["tytul" => "Produkt","sciezka" => "./html/produkt.html"],

@@ -1,15 +1,19 @@
 <?php
 
-require_once __DIR__ . '/cfg.php';
+$strona = null;
+$alias = '';
+$blad = false;
+$bladserwera = false;
+$menu = [];
 
 try{
+	require_once __DIR__ . '/cfg.php';
 	require_once __DIR__ . '/showpage.php';
 	$idp = $_GET['idp'] ?? '';
 
-	$strona = null;
-	$alias = '';
-	$blad = false;
-	$bladserwera = false;
+	$zapytanieMenu = $pdo->query("SELECT alias, page_title FROM page_list WHERE status = 1 ORDER BY id");
+	$menu = $zapytanieMenu->fetchAll();
+
 	if (!is_string($idp)){
 		$blad = true;
 	}else{
@@ -54,9 +58,6 @@ elseif ($blad){
 }else{
 	http_response_code(200);
 }
-
-$zapytanieMenu = $pdo->query("SELECT alias, page_title FROM page_list WHERE status = 1 ORDER BY id");
-$menu = $zapytanieMenu->fetchAll();
 
 ?>
 

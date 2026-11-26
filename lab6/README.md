@@ -168,4 +168,90 @@ Oczekiwany wynik: Otwórz stronę główną i podstrony. Działają style, obraz
 
 Próba zakończona pomyślnie: Wszystkie strony otwierają się prawidłowo. Style, obrazy, linki, animacje oraz żądanie do `status.php` działają poprawnie.
 
+## Pseudokod odczytu strony
 
+```text
+idp = pobierz_parametr_z_adresu("idp")
+
+zapytanie_menu = pobierz alias i page_title z page_list gdzie status = 1 uporządkuj według id
+
+menu = pobierz_wszystkie_wyniki(zapytanie_menu)
+
+if (!idp_jest_string){
+    blad = true
+}else{
+    if (idp == ''){
+        idp = "glowna"
+    }
+
+    dlugosc = długość(idp)
+
+    if (dlugosc < 1 || dlugosc > 20){
+        blad = true
+    }else{
+        for (i = 0; i < dlugosc; i++){
+            znak = idp[i]
+
+            if (!(znak_jest_małą_literą || znak_jest_cyfrą)){
+                blad = true
+                break
+            }
+        }
+    }
+
+    if (!blad){
+        strona = PokazPodstrone(baza_danych, idp)
+
+        if (strona == null){
+            blad = true
+        }else{
+            alias = idp
+        }
+    }
+}
+```
+
+
+## Sprawdzenie lab6
+
+### Odczyt i aktualizacja treści
+
+Oczekiwany wynik: index.php i ?idp= otwierają glowna z HTTP 200. po Zmianie treści w phpMyAdmin: po odświeżeniu widać zmianę bez edycji plików PHP i HTML.
+
+Próba zakończona pomyślnie: strona główna otwiera się poprawnie pod oboma adresami
+
+### Nowa strona i menu
+
+Oczekiwany wynik: Link pojawia się w menu i otwiera stronę bez zmiany kodu PHP. Aktywny link jest oznaczony.
+
+Próba zakończona pomyślnie: kliknięcie linku otworzyło nową podstronę bez konieczności modyfikowania kodu PHP
+
+### Szkic i publikacja
+
+Oczekiwany wynik: Rekord ze statusem 0 znika z menu, a jego bezpośredni adres zwraca 404. Po zmianie statusu na 1 jest widoczny. Próba dodania identycznego aliasu jest odrzucana przez bazę.
+
+Próba zakończona pomyślnie: strona ze statusem 0 nie pojawiała się w menu, a próba otwarcia jej bezpośrednim adresem zwraca HTTP 404. Nowy rekord z identycznym aliasem nie jest akceptowany.
+
+### Błędne dane w adresie
+
+Oczekiwany wynik: ?idp=nieznana i ?idp[]=filmy dają 404. Jako idp sprawdź też ../cfg.php oraz tekst ' OR 1=1--. Każda próba daje 404 bez ostrzeżeń PHP.
+
+Próba zakończona pomyślnie: Wszystkie nieprawidłowe adresy zwróciły HTTP 404 bez ostrzeżenie PHP.
+
+### Awaria bazy
+
+Oczekiwany wynik: Strona zwraca 500 bez szczegółów technicznych, a lokalny log pozwala ustalić przyczynę.
+
+Próba zakończona pomyślnie: Po zatrzymaniu MySQL strona zwróciła HTTP 500 i wyświetliła komunikat o błędzie serwera
+
+### Funkcje po migracji
+
+Oczekiwany wynik: Działają style, obrazy, animacje, AJAX i trzy filmy. Katalog filtruje produkty i zapisuje wybór: POST 303, potem GET 200. Wybór pozostaje po przejściu między podstronami.
+
+Próba zakończona pomyślnie: Style, obrazy, animacje, AJAX oraz filmy działają prawidłowo. Katalog poprawnie filtruje produkty i zapisuje wybór użytkownika
+
+### Odtworzenie środowiska
+
+Oczekiwany wynik: projekt uruchamia się zgodnie z README, także z polskimi znakami.
+
+Próba zakończona pomyślnie: projekt uruchomił się poprawnie, a wszystkie podstrony i polskie znaki wyświetlały się prawidłowo.

@@ -2,48 +2,61 @@
 
 require_once __DIR__ . '/cfg.php';
 
-$mapa = [
-	"glowna" => ["tytul" => "Strona główna","sciezka" => "./html/glowna.html"],
-	"produkt" => ["tytul" => "Produkt","sciezka" => "./html/produkt.html"],
-	"kontakt" => ["tytul" => "Kontakt","sciezka" => "./html/kontakt.html"],
-	"filmy" => ["tytul" => "Filmy","sciezka" => "./html/filmy.html"]
-];
+try{
+	require_once __DIR__ . '/showpage.php';
+	$idp = $_GET['idp'] ?? '';
 
-$idp = $_GET['idp'] ?? 'glowna';
+	$strona = null;
+	$alias = '';
+	$blad = false;
+	$bladserwera = false;
+	if (!is_string($idp)){
+		$blad = true;
+	}else{
+		if ($idp === ""){
+			$idp = "glowna";
+		}
+		$dlugosc = strlen($idp);
 
-if (!is_string($idp)){
-    http_response_code(404);
-    $blad = true;
-}
-elseif ($idp === ''){
-    $idp = 'glowna';
-    $blad = false;
-}
-elseif (isset($mapa[$idp])){
-    http_response_code(200);
-    $blad = false;
-}
-else{
-    http_response_code(404);
-    $blad = true;
-}
+		if ($dlugosc < 1 || $dlugosc > 20){
+			$blad = true;
+		}else{
+			for ($i=0;$i<$dlugosc;$i++){
+				$znak = $idp[$i];
 
-if ($blad){
-    $widok = null;
-}
-else{
-    $widok = $mapa[$idp];
+				if (!(($znak >= "a" && $znak <= "z") || ($znak >= "0" && $znak <= "9"))){
+					$blad = true;
+					break;
+				}
+			}
+		}
 
-    $plik = __DIR__ . '/' . $widok['sciezka'];
-    if (!is_file($plik) || !is_readable($plik)){
-        http_response_code(500);
-        $blad_serwera = true;
-    }
-    else {
-        http_response_code(200);
-        $blad_serwera = false;
+		if (!$blad){
+			$strona = PokazPodstrone($pdo, $idp);
+			if ($strona === null){
+				$blad = true;
+			}else{
+				$alias = $idp;
+			}
+		}
+		
 	}
+}catch(PDOException $e){
+	error_log($e->getMessage());
+    $bladserwera = true;
 }
+
+if ($bladserwera){
+	http_response_code(500);
+}
+elseif ($blad){
+	http_response_code(404);
+}else{
+	http_response_code(200);
+}
+
+$zapytanieMenu = $pdo->query("SELECT alias, page_title FROM page_list WHERE status = 1 ORDER BY id");
+$menu = $zapytanieMenu->fetchAll();
 
 ?>
 
@@ -58,14 +71,14 @@ else{
 	<script src="./js/lab3.js" defer></script>
 	<title>
 		<?php
-		if ($blad){
+		if ($bladserwera){
+			echo "Błąd serwera";
+		}
+		elseif ($blad){
             echo "Nie znaleziono strony";
-        }
-        elseif ($blad_serwera){
-            echo "Błąd serwera";
-        }
+		}
         else{
-    	echo htmlspecialchars($widok['tytul'], ENT_QUOTES, 'UTF-8');
+    		echo htmlspecialchars($strona['page_title'], ENT_QUOTES, 'UTF-8');
 		}
 		?>
 		</title>
@@ -79,15 +92,14 @@ else{
 	
 	<nav class="menu">
 
-		<a href="./index.php?idp=glowna"<?php if (!$blad && !$blad_serwera && $idp == 'glowna') echo 'aria-current="page"'; ?>>Index</a>
-
-		<a href="./index.php?idp=produkt"<?php if (!$blad && !$blad_serwera && $idp == 'produkt') echo 'aria-current="page"'; ?>>Produkt</a>
-
-		<a href="./index.php?idp=kontakt"<?php if (!$blad && !$blad_serwera && $idp == 'kontakt') echo 'aria-current="page"'; ?>>Kontakt</a>
+		<?php foreach ($menu as $element): ?>
+			<a href="./index.php?idp=<?php echo $element['alias']; ?>"
+        	<?php if ($alias === $element['alias']) echo 'aria-current="page"'; ?>>
+			<?php echo htmlspecialchars($element['page_title'], ENT_QUOTES, 'UTF-8'); ?>
+			</a>
+		<?php endforeach; ?>
 
 		<a href="./lab4.php">Katalog PHP</a>
-
-		<a href="./index.php?idp=filmy"<?php if (!$blad && !$blad_serwera && $idp == 'filmy') echo 'aria-current="page"'; ?>>Filmy</a>
 
 	</nav>
 
@@ -98,18 +110,15 @@ else{
 
 	<?php
 
-	if ($blad) {
+	if ($bladserwera){
+		echo "<h2>Błąd serwera</h2>";
+	}
+	elseif ($blad) {
 		echo "<h2>Nie znaleziono podstrony</h2>";
 		echo '<a href="./index.php">Powrót na stronę główną</a>';
-	}
-
-	elseif ($blad_serwera){
-		echo "<h2>Błąd serwera</h2>";
-		echo '<a href="./index.php">Powrót na stronę główną</a>';
-	}
-
-	else{
-		include $plik;
+	}else{
+		echo "<h2>" . $strona['page_title'] . "</h2>";
+		echo $strona['page_content'];
 	}
 
 	?>
